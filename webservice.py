@@ -1,3 +1,6 @@
+# test by using: curl --data "text=test" http://127.0.0.1:8080
+# windows requires installing pywin32 to use pyttsx
+
 import pyttsx
 import web
 import threading
