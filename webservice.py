@@ -2,6 +2,7 @@ import pyttsx
 import web
 import threading
 
+# say the text function
 def saythread(location, text):
     engine = pyttsx.init() 
     engine.say(text)
@@ -16,11 +17,12 @@ class say:
         data = web.input()
         if data['text']:
             e = (1, data['text'])
+            # must be in a thread or application will get stuck on runAndWait
             t = threading.Thread(target=saythread,args=e,name="sayitthread")
             t.start()
             result = "success"
         else:
-            result = "failure"
+            result = "failure: no text"
         return result
 
 if __name__ == "__main__":
